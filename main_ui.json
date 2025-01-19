@@ -1,5 +1,33 @@
 {
     "templates": {
+        "text_block": {
+            "type": "text",
+            "font_size": 14,
+            "text_alignment_horizontal": "center",
+            "text_alignment_vertical": "center",
+            "alignment_horizontal": "center",
+            "paddings": {
+                "top": 4,
+                "bottom": 4,
+                "left": 8,
+                "right": 8
+            },
+            "width": {
+                "type": "match_parent"
+            },
+            "height": {
+                "type": "match_parent"
+            },
+            "background": [
+                {
+                    "type": "solid",
+                    "color": "#f1f1f1"
+                }
+            ],
+            "border": {
+                "corner_radius": 16
+            }
+        },
         "title": {
             "type": "text",
             "font_size": 20,
@@ -19,105 +47,10 @@
                 "left": 24,
                 "right": 24
             }
-        },
-        "input_text_borderless": {
-            "type": "input",
-            "width": {
-                "type": "match_parent"
-            },
-            "height": {
-                "type": "wrap_content"
-            },
-            "margins": {
-                "left": 16,
-                "top": 20,
-                "right": 16,
-                "bottom": 16
-            },
-            "paddings": {
-                "left": 16,
-                "top": 10,
-                "right": 16,
-                "bottom": 10
-            },
-            "alignment_horizontal": "center",
-            "alignment_vertical": "center",
-            "font_size": 16,
-            "font_weight": "medium",
-            "text_color": "#000000",
-            "hint_color": "#888888",
-            "highlight_color": "#e0bae3",
-            "line_height": 22
-        },
-        "input_text": {
-            "type": "input_text_borderless",
-            "background": [
-                {
-                    "type": "solid",
-                    "color": "#0e000000"
-                }
-            ],
-            "border": {
-                "corner_radius": 8
-            }
-        },
-        "output_text": {
-            "type": "text",
-            "width": {
-                "type": "match_parent"
-            },
-            "height": {
-                "type": "wrap_content"
-            },
-            "paddings": {
-                "left": 24,
-                "right": 24,
-                "bottom": 16
-            },
-            "alpha": 1,
-            "alignment_horizontal": "center",
-            "alignment_vertical": "center",
-            "font_size": 16,
-            "font_weight": "medium",
-            "text_alignment_horizontal": "left",
-            "text_alignment_vertical": "center",
-            "text_color": "#000000"
         }
     },
     "card": {
         "log_id": "sample_card",
-        "variables": [
-            {
-                "name": "my_single_text",
-                "type": "string",
-                "value": "This is single-line input"
-            },
-            {
-                "name": "my_multi_text",
-                "type": "string",
-                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            },
-            {
-                "name": "my_borderless_text",
-                "type": "string",
-                "value": ""
-            },
-            {
-                "name": "my_email_text",
-                "type": "string",
-                "value": ""
-            },
-            {
-                "name": "my_number_text",
-                "type": "string",
-                "value": ""
-            },
-            {
-                "name": "my_focus_text",
-                "type": "string",
-                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            }
-        ],
         "states": [
             {
                 "state_id": 0,
@@ -131,92 +64,119 @@
                     "items": [
                         {
                             "type": "title",
-                            "text": "Text inputs"
+                            "text": "Pager"
                         },
                         {
                             "type": "subtitle",
-                            "text": "You can input your own data and interact with it."
+                            "text": "A pager displays a horizontal set of cards, where the main card is fully visible and the neighboring ones are partially displayed.\n\nYou can use it with an indicator to show which card is selected.\n\nAn indicator is also a div and can be positioned independently of a pager.\n\nThe example shows a pager with ten cards and an indicator on top.",
+                            "margins": {
+                                "bottom": 24
+                            }
                         },
                         {
-                            "type": "input_text",
-                            "text_variable": "my_single_text",
-                            "keyboard_type": "single_line_text",
-                            "enter_key_type": "done",
-                            "enter_key_actions": [
+                            "type": "container",
+                            "items": [
                                 {
-                                    "log_id": "clear focus",
-                                    "typed": {
-                                        "type": "clear_focus"
+                                    "type": "indicator",
+                                    "active_item_color": "#000000",
+                                    "active_item_size": 1.5,
+                                    "height": {
+                                        "type": "fixed",
+                                        "value": 10
+                                    },
+                                    "margins": {
+                                        "top": 10,
+                                        "bottom": 10
+                                    },
+                                    "space_between_centers": 10,
+                                    "inactive_item_color": "#D0D1D9",
+                                    "pager_id": "pager_with_indicator",
+                                    "shape": {
+                                        "type": "rounded_rectangle",
+                                        "corner_radius": {
+                                            "type": "fixed",
+                                            "value": 2
+                                        },
+                                        "item_height": {
+                                            "type": "fixed",
+                                            "value": 2
+                                        },
+                                        "item_width": {
+                                            "type": "fixed",
+                                            "value": 10
+                                        }
                                     }
                                 },
                                 {
-                                    "log_id": "change_button_1_state",
-                                    "url": "div-action://set_variable?name=my_single_text&value=Enter key tapped!"
+                                    "type": "pager",
+                                    "id": "pager_with_indicator",
+                                    "item_spacing": {
+                                        "type": "fixed",
+                                        "value": 8
+                                    },
+                                    "height": {
+                                        "type": "fixed",
+                                        "value": 300
+                                    },
+                                    "items": [
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 0"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 1"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 2"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 3"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 4"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 5"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 6"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 7"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 8"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 9"
+                                        },
+                                        {
+                                            "type": "text_block",
+                                            "text": "Item 10"
+                                        }
+                                    ],
+                                    "layout_mode": {
+                                        "type": "fixed",
+                                        "neighbour_page_width": {
+                                            "type": "fixed",
+                                            "value": 16
+                                        }
+                                    },
+                                    "paddings": {
+                                        "right": 4,
+                                        "left": 4
+                                    }
                                 }
                             ]
-                        },
-                        {
-                            "type": "output_text",
-                            "text": "Text: @{my_single_text}",
-                            "ranges": [
-                                {
-                                    "start": 0,
-                                    "end": 5,
-                                    "text_color": "#777777"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "subtitle",
-                            "text": "The input can consist of either one or multiple lines."
-                        },
-                        {
-                            "type": "input_text",
-                            "text_variable": "my_multi_text"
-                        },
-                        {
-                            "type": "subtitle",
-                            "text": "The input text can also be presented in a format of an underlined text."
-                        },
-                        {
-                            "type": "input_text_borderless",
-                            "hint_text": "This is borderless text",
-                            "native_interface": {
-                                "color": "#000000"
-                            },
-                            "text_variable": "my_borderless_text"
-                        },
-                        {
-                            "type": "subtitle",
-                            "text": "There are multiple types of keyboard inputs, for example, for numbers, phones, e-mails etc."
-                        },
-                        {
-                            "type": "input_text",
-                            "keyboard_type": "email",
-                            "text_variable": "my_email_text",
-                            "hint_text": "This is input for e-mails"
-                        },
-                        {
-                            "type": "input_text",
-                            "keyboard_type": "number",
-                            "text_variable": "my_number_text",
-                            "hint_text": "This is input for numbers"
-                        },
-                        {
-                            "type": "subtitle",
-                            "text": "There are also different features, such as changing color of text, changing spacing between lines and symbols or making the whole text selected on tapping."
-                        },
-                        {
-                            "type": "subtitle",
-                            "text": "The following text will be selected fully when focused."
-                        },
-                        {
-                            "type": "input_text",
-                            "text_variable": "my_focus_text",
-                            "select_all_on_focus": 1,
-                            "line_height": 32,
-                            "letter_spacing": 2,
-                            "text_color": "#FF0000"
                         }
                     ]
                 }
