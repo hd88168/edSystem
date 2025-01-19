@@ -1,37 +1,16 @@
 {
     "templates": {
-        "text_block": {
+        "empty_block": {
             "type": "text",
+            "text": "   ",
             "width": {
-                "type": "match_parent"
+                "type": "fixed",
+                "value": 100
             },
             "height": {
-                "type": "wrap_content"
-            },
-            "paddings": {
-                "left": 24,
-                "top": 16,
-                "right": 16,
-                "bottom": 16
-            },
-            "margins": {
-                "left": 24,
-                "right": 24
-            },
-            "border": {
-                "corner_radius": 8
-            },
-            "background": [
-                {
-                    "type": "solid",
-                    "color": "#0E000000"
-                }
-            ],
-            "font_size": 14,
-            "font_weight": "medium",
-            "text_alignment_vertical": "center",
-            "text_alignment_horizontal": "center",
-            "text_color": "#000000"
+                "type": "fixed",
+                "value": 100
+            }
         },
         "title": {
             "type": "text",
@@ -56,6 +35,13 @@
     },
     "card": {
         "log_id": "sample_card",
+        "variables": [
+            {
+                "name": "value_variable",
+                "type": "string",
+                "value": ""
+            }
+        ],
         "states": [
             {
                 "state_id": 0,
@@ -69,44 +55,100 @@
                     "items": [
                         {
                             "type": "title",
-                            "text": "A set of states"
+                            "text": "Select"
                         },
                         {
                             "type": "subtitle",
-                            "text": "States can be used to create interactive elements, such as buttons or expandable content.\n\nThe example shows a button that changes its own text when clicked.",
+                            "text": "Allows you to select an option from a predefined list.",
                             "margins": {
-                                "bottom": 12
+                                "bottom": 24
                             }
                         },
                         {
-                            "type": "state",
-                            "id": "sample",
-                            "states": [
+                            "type": "subtitle",
+                            "text": "Options may have different values for user and application.",
+                            "margins": {
+                                "bottom": 24
+                            }
+                        },
+                        {
+                            "type": "container",
+                            "orientation": "vertical",
+                            "paddings": {
+                                "left": 24,
+                                "right": 24
+                            },
+                            "items": [
                                 {
-                                    "state_id": "first",
-                                    "div": {
-                                        "type": "text_block",
-                                        "text": "This is first state",
-                                        "actions": [
-                                            {
-                                                "log_id": "switch_state1",
-                                                "url": "div-action://set_state?state_id=0/sample/second"
-                                            }
-                                        ]
+                                    "type": "select",
+                                    "width": {
+                                        "type": "match_parent"
+                                    },
+                                    "height": {
+                                        "type": "wrap_content"
+                                    },
+                                    "paddings": {
+                                        "left": 16,
+                                        "top": 10,
+                                        "right": 16,
+                                        "bottom": 10
+                                    },
+                                    "alpha": 1,
+                                    "alignment_horizontal": "center",
+                                    "alignment_vertical": "center",
+                                    "background": [
+                                        {
+                                            "type": "solid",
+                                            "color": "#0e000000"
+                                        }
+                                    ],
+                                    "border": {
+                                        "corner_radius": 8
+                                    },
+                                    "font_size": 16,
+                                    "font_weight": "medium",
+                                    "text_color": "#000000",
+                                    "value_variable": "value_variable",
+                                    "hint_text": "Select option",
+                                    "hint_color": "#888888",
+                                    "line_height": 22,
+                                    "options": [
+                                        {
+                                            "value": ""
+                                        },
+                                        {
+                                            "value": "value_for_option_1",
+                                            "text": "Option 1"
+                                        },
+                                        {
+                                            "value": "value_for_option_2",
+                                            "text": "Option 2"
+                                        },
+                                        {
+                                            "value": "value_for_option_3",
+                                            "text": "Option 3"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "text",
+                                    "text": " ",
+                                    "height": {
+                                        "type": "fixed",
+                                        "value": 16
                                     }
                                 },
                                 {
-                                    "state_id": "second",
-                                    "div": {
-                                        "type": "text_block",
-                                        "text": "This is second state",
-                                        "actions": [
-                                            {
-                                                "log_id": "switch_state1",
-                                                "url": "div-action://set_state?state_id=0/sample/first"
-                                            }
-                                        ]
-                                    }
+                                    "type": "text",
+                                    "width": {
+                                        "type": "match_parent"
+                                    },
+                                    "height": {
+                                        "type": "wrap_content"
+                                    },
+                                    "font_size": 16,
+                                    "text_color": "#000000",
+                                    "text": "Value: @{value_variable}"
                                 }
                             ]
                         }
