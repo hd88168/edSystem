@@ -1,6 +1,6 @@
 {
   "card": {
-    "log_id": "div2_sample_card",
+    "log_id": "ed_login_ui",
     "states": [
       {
         "state_id": 0,
@@ -8,8 +8,8 @@
           "type": "container",
           "orientation": "vertical",
           "margins": {
-            "top": 24,
-            "bottom": 24
+            "top": 0,
+            "bottom": 0
           },
           "items": [
             {
