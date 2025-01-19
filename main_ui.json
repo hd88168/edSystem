@@ -1,6 +1,6 @@
 {
   "card": {
-    "log_id": "ed_login_ui",
+    "log_id": "div2_sample_card",
     "states": [
       {
         "state_id": 0,
@@ -71,6 +71,38 @@
                   "color": "#1a000000"
                 }
               ]
+            },
+            {
+              "text": "Login",
+              "background": [
+                {
+                  "type": "solid",
+                  "color": "#c42f099d"
+                }
+              ],
+              "text_color": "#fff",
+              "corners": 4,
+              "type": "_template_button",
+              "width": {
+                "type": "match_parent"
+              },
+              "alignment_horizontal": "center",
+              "alignment_vertical": "top",
+              "height": {
+                "type": "wrap_content"
+              },
+              "font_weight": "bold",
+              "paddings": {
+                "top": 16,
+                "right": 16,
+                "bottom": 16,
+                "left": 16
+              },
+              "margins": {
+                "right": 16,
+                "bottom": 16,
+                "left": 16
+              }
             }
           ],
           "background": [
@@ -173,6 +205,23 @@
       "text_alignment_horizontal": "left",
       "text_alignment_vertical": "center",
       "text_color": "#000000"
+    },
+    "_template_button": {
+      "type": "text",
+      "text_alignment_horizontal": "center",
+      "text_alignment_vertical": "center",
+      "border": {
+        "$corner_radius": "corners"
+      },
+      "paddings": {
+        "bottom": 24,
+        "left": 28,
+        "right": 28,
+        "top": 22
+      },
+      "width": {
+        "type": "wrap_content"
+      }
     }
   }
 }
