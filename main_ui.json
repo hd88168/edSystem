@@ -1,17 +1,5 @@
 {
     "templates": {
-        "empty_block": {
-            "type": "text",
-            "text": "   ",
-            "width": {
-                "type": "fixed",
-                "value": 100
-            },
-            "height": {
-                "type": "fixed",
-                "value": 100
-            }
-        },
         "title": {
             "type": "text",
             "font_size": 20,
@@ -31,15 +19,103 @@
                 "left": 24,
                 "right": 24
             }
+        },
+        "input_text_borderless": {
+            "type": "input",
+            "width": {
+                "type": "match_parent"
+            },
+            "height": {
+                "type": "wrap_content"
+            },
+            "margins": {
+                "left": 16,
+                "top": 20,
+                "right": 16,
+                "bottom": 16
+            },
+            "paddings": {
+                "left": 16,
+                "top": 10,
+                "right": 16,
+                "bottom": 10
+            },
+            "alignment_horizontal": "center",
+            "alignment_vertical": "center",
+            "font_size": 16,
+            "font_weight": "medium",
+            "text_color": "#000000",
+            "hint_color": "#888888",
+            "highlight_color": "#e0bae3",
+            "line_height": 22
+        },
+        "input_text": {
+            "type": "input_text_borderless",
+            "background": [
+                {
+                    "type": "solid",
+                    "color": "#0e000000"
+                }
+            ],
+            "border": {
+                "corner_radius": 8
+            }
+        },
+        "output_text": {
+            "type": "text",
+            "width": {
+                "type": "match_parent"
+            },
+            "height": {
+                "type": "wrap_content"
+            },
+            "paddings": {
+                "left": 24,
+                "right": 24,
+                "bottom": 16
+            },
+            "alpha": 1,
+            "alignment_horizontal": "center",
+            "alignment_vertical": "center",
+            "font_size": 16,
+            "font_weight": "medium",
+            "text_alignment_horizontal": "left",
+            "text_alignment_vertical": "center",
+            "text_color": "#000000"
         }
     },
     "card": {
         "log_id": "sample_card",
         "variables": [
             {
-                "name": "value_variable",
+                "name": "my_single_text",
+                "type": "string",
+                "value": "This is single-line input"
+            },
+            {
+                "name": "my_multi_text",
+                "type": "string",
+                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            },
+            {
+                "name": "my_borderless_text",
                 "type": "string",
                 "value": ""
+            },
+            {
+                "name": "my_email_text",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "my_number_text",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "my_focus_text",
+                "type": "string",
+                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
             }
         ],
         "states": [
@@ -55,102 +131,92 @@
                     "items": [
                         {
                             "type": "title",
-                            "text": "Select"
+                            "text": "Text inputs"
                         },
                         {
                             "type": "subtitle",
-                            "text": "Allows you to select an option from a predefined list.",
-                            "margins": {
-                                "bottom": 24
-                            }
+                            "text": "You can input your own data and interact with it."
                         },
                         {
-                            "type": "subtitle",
-                            "text": "Options may have different values for user and application.",
-                            "margins": {
-                                "bottom": 24
-                            }
-                        },
-                        {
-                            "type": "container",
-                            "orientation": "vertical",
-                            "paddings": {
-                                "left": 24,
-                                "right": 24
-                            },
-                            "items": [
+                            "type": "input_text",
+                            "text_variable": "my_single_text",
+                            "keyboard_type": "single_line_text",
+                            "enter_key_type": "done",
+                            "enter_key_actions": [
                                 {
-                                    "type": "select",
-                                    "width": {
-                                        "type": "match_parent"
-                                    },
-                                    "height": {
-                                        "type": "wrap_content"
-                                    },
-                                    "paddings": {
-                                        "left": 16,
-                                        "top": 10,
-                                        "right": 16,
-                                        "bottom": 10
-                                    },
-                                    "alpha": 1,
-                                    "alignment_horizontal": "center",
-                                    "alignment_vertical": "center",
-                                    "background": [
-                                        {
-                                            "type": "solid",
-                                            "color": "#0e000000"
-                                        }
-                                    ],
-                                    "border": {
-                                        "corner_radius": 8
-                                    },
-                                    "font_size": 16,
-                                    "font_weight": "medium",
-                                    "text_color": "#000000",
-                                    "value_variable": "value_variable",
-                                    "hint_text": "Select option",
-                                    "hint_color": "#888888",
-                                    "line_height": 22,
-                                    "options": [
-                                        {
-                                            "value": ""
-                                        },
-                                        {
-                                            "value": "value_for_option_1",
-                                            "text": "Option 1"
-                                        },
-                                        {
-                                            "value": "value_for_option_2",
-                                            "text": "Option 2"
-                                        },
-                                        {
-                                            "value": "value_for_option_3",
-                                            "text": "Option 3"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "text",
-                                    "text": " ",
-                                    "height": {
-                                        "type": "fixed",
-                                        "value": 16
+                                    "log_id": "clear focus",
+                                    "typed": {
+                                        "type": "clear_focus"
                                     }
                                 },
                                 {
-                                    "type": "text",
-                                    "width": {
-                                        "type": "match_parent"
-                                    },
-                                    "height": {
-                                        "type": "wrap_content"
-                                    },
-                                    "font_size": 16,
-                                    "text_color": "#000000",
-                                    "text": "Value: @{value_variable}"
+                                    "log_id": "change_button_1_state",
+                                    "url": "div-action://set_variable?name=my_single_text&value=Enter key tapped!"
                                 }
                             ]
+                        },
+                        {
+                            "type": "output_text",
+                            "text": "Text: @{my_single_text}",
+                            "ranges": [
+                                {
+                                    "start": 0,
+                                    "end": 5,
+                                    "text_color": "#777777"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "subtitle",
+                            "text": "The input can consist of either one or multiple lines."
+                        },
+                        {
+                            "type": "input_text",
+                            "text_variable": "my_multi_text"
+                        },
+                        {
+                            "type": "subtitle",
+                            "text": "The input text can also be presented in a format of an underlined text."
+                        },
+                        {
+                            "type": "input_text_borderless",
+                            "hint_text": "This is borderless text",
+                            "native_interface": {
+                                "color": "#000000"
+                            },
+                            "text_variable": "my_borderless_text"
+                        },
+                        {
+                            "type": "subtitle",
+                            "text": "There are multiple types of keyboard inputs, for example, for numbers, phones, e-mails etc."
+                        },
+                        {
+                            "type": "input_text",
+                            "keyboard_type": "email",
+                            "text_variable": "my_email_text",
+                            "hint_text": "This is input for e-mails"
+                        },
+                        {
+                            "type": "input_text",
+                            "keyboard_type": "number",
+                            "text_variable": "my_number_text",
+                            "hint_text": "This is input for numbers"
+                        },
+                        {
+                            "type": "subtitle",
+                            "text": "There are also different features, such as changing color of text, changing spacing between lines and symbols or making the whole text selected on tapping."
+                        },
+                        {
+                            "type": "subtitle",
+                            "text": "The following text will be selected fully when focused."
+                        },
+                        {
+                            "type": "input_text",
+                            "text_variable": "my_focus_text",
+                            "select_all_on_focus": 1,
+                            "line_height": 32,
+                            "letter_spacing": 2,
+                            "text_color": "#FF0000"
                         }
                     ]
                 }
