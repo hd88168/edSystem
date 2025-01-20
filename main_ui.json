@@ -26,7 +26,7 @@
               "preload_required": true,
               "alignment_horizontal": "center",
               "margins": {
-                "bottom": 98
+                "bottom": 16
               }
             },
             {
@@ -126,7 +126,7 @@
                 }
               ],
               "text_color": "#fff",
-              "corners": 4,
+              "corners": 8,
               "type": "_template_button",
               "width": {
                 "type": "match_parent"
@@ -135,7 +135,7 @@
               "alignment_vertical": "top",
               "height": {
                 "type": "fixed",
-                "value": 47
+                "value": 49
               },
               "font_weight": "bold",
               "paddings": {
@@ -149,7 +149,14 @@
                 "bottom": 16,
                 "left": 16
               },
-              "text_alignment_horizontal": "center"
+              "text_alignment_horizontal": "center",
+              "font_size_unit": "dp",
+              "font_size": 18,
+              "min_hidden_lines": 0,
+              "action": {
+                "log_id": "btn_connect",
+                "url": "div-action://connect_vpn?username=abc&sni=abc&remote_host=127.0.0.1:443"
+              }
             }
           ],
           "background": [
