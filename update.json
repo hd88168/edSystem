@@ -1,3 +1,9 @@
 {
-  "is_update": true
+  
+  "version": "1.1.0-dev",
+  "releaseDate": "2023-10-15",
+  "downloadUrl": "?.apk",
+  "size": "?MB",
+  "updateNotes": "Added new feature for user profiles, improved performance, and fixed bugs.",
+  "needsUpdate": true
 }
