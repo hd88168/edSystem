@@ -13,16 +13,33 @@
           },
           "items": [
             {
+              "type": "image",
+              "image_url": "https://yastatic.net/s3/home/divkit/empty2.png",
+              "width": {
+                "type": "fixed",
+                "value": 128
+              },
+              "height": {
+                "type": "fixed",
+                "value": 128
+              },
+              "preload_required": true,
+              "alignment_horizontal": "center",
+              "margins": {
+                "bottom": 98
+              }
+            },
+            {
               "type": "title",
-              "text": "Text inputs"
+              "text": "DEV_VERSION"
             },
             {
               "type": "subtitle",
-              "text": "Username:"
+              "text": "USERNAME:"
             },
             {
               "type": "input_text",
-              "text_variable": "my_single_text",
+              "text_variable": "user_name",
               "keyboard_type": "single_line_text",
               "enter_key_type": "done",
               "enter_key_actions": [
@@ -34,7 +51,7 @@
                 },
                 {
                   "log_id": "change_button_1_state",
-                  "url": "div-action://set_variable?name=my_single_text&value=Enter key tapped!"
+                  "url": "div-action://set_variable?name=user_name&value=Enter key tapped!"
                 }
               ],
               "background": [
@@ -46,12 +63,12 @@
             },
             {
               "type": "subtitle",
-              "text": "Password:"
+              "text": "SNI:"
             },
             {
               "type": "input_text",
-              "text_variable": "my_single_text",
-              "keyboard_type": "password",
+              "text_variable": "my_sni",
+              "keyboard_type": "single_line_text",
               "enter_key_type": "done",
               "enter_key_actions": [
                 {
@@ -62,7 +79,7 @@
                 },
                 {
                   "log_id": "change_button_1_state",
-                  "url": "div-action://set_variable?name=my_single_text&value=Enter key tapped!"
+                  "url": "div-action://set_variable?name=my_sni&value=Enter key tapped!"
                 }
               ],
               "background": [
@@ -73,7 +90,35 @@
               ]
             },
             {
-              "text": "Login",
+              "type": "subtitle",
+              "text": "HOST:"
+            },
+            {
+              "type": "input_text",
+              "text_variable": "remote_host",
+              "keyboard_type": "single_line_text",
+              "enter_key_type": "done",
+              "enter_key_actions": [
+                {
+                  "log_id": "clear focus",
+                  "typed": {
+                    "type": "clear_focus"
+                  }
+                },
+                {
+                  "log_id": "change_button_1_state",
+                  "url": "div-action://set_variable?name=remote_host&value=Enter key tapped!"
+                }
+              ],
+              "background": [
+                {
+                  "type": "solid",
+                  "color": "#1a000000"
+                }
+              ]
+            },
+            {
+              "text": "KET NOI",
               "background": [
                 {
                   "type": "solid",
@@ -89,7 +134,8 @@
               "alignment_horizontal": "center",
               "alignment_vertical": "top",
               "height": {
-                "type": "wrap_content"
+                "type": "fixed",
+                "value": 47
               },
               "font_weight": "bold",
               "paddings": {
@@ -102,7 +148,8 @@
                 "right": 16,
                 "bottom": 16,
                 "left": 16
-              }
+              },
+              "text_alignment_horizontal": "center"
             }
           ],
           "background": [
@@ -110,15 +157,30 @@
               "type": "solid",
               "color": "#f6f6f6"
             }
-          ]
+          ],
+          "height": {
+            "type": "match_parent"
+          },
+          "content_alignment_vertical": "center",
+          "content_alignment_horizontal": "center"
         }
       }
     ],
     "variables": [
       {
         "type": "string",
-        "name": "my_single_text",
-        "value": "This is single-line input"
+        "name": "user_name",
+        "value": ""
+      },
+      {
+        "type": "string",
+        "name": "my_sni",
+        "value": ""
+      },
+      {
+        "type": "string",
+        "name": "remote_host",
+        "value": ""
       }
     ]
   },
